@@ -4,8 +4,11 @@
 #include <iostream>
 using namespace std;
 
-void appSystemFunc(){ cout << "appSystemFunc" << endl;}
+void appSystemFunc(){ cout << "appSystemFunc" << endl; }
 
+#ifndef USER
+extern void appUserFunc(); //add User function
+#endif
 
 struct App
 {   
@@ -17,7 +20,10 @@ struct App
 App commands[]
 {
     {1, "app system", appSystemFunc},
-    {1, "app system", appUserFunc},
+    
+    #ifndef USER
+    {2, "app user", appUserFunc},
+    #endif
 };
 
 void runTask()
