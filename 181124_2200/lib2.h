@@ -25,10 +25,15 @@ public:
 
     void runTask()
     {
-        for (Appl comm : commands)
+        for (const auto& comm : commands)
         {
             comm.f();
         }
+    }
+
+    void attach(void (*f)(void))
+    {
+        callbacks[num] = f;
     }
 
 private:
