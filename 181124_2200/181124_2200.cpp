@@ -4,5 +4,5 @@ kernel<2> OS;
 
 int main()
 {
-    OS.runTask();
+    //OS.runTask();
 }

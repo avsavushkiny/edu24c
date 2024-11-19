@@ -2,6 +2,7 @@
 #define LIB2_H
 
 #include <iostream>
+#include <stdint.h>
 using namespace std;
 
 void systemFunc() { cout << "system func" << endl; }
@@ -18,7 +19,7 @@ public:
         void (*f)(void);
     };
 
-    Appl commands[_amount]
+    /*Appl commands[_amount]
     {
         {1, "system", systemFunc},
     };
@@ -29,9 +30,9 @@ public:
         {
             comm.f();
         }
-    }
+    }*/
 
-    void attach(void (*f)(void))
+    void attach(void (*f)())
     {
         callbacks[num] = f;
     }
