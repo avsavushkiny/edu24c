@@ -2,7 +2,10 @@
 
 kernel<2> OS;
 
+void userFunc() { cout << "user func" << endl; }
+
 int main()
 {
-    //OS.runTask();
+    OS.attach(userFunc, 1);
+    OS.attach(userFunc, 2);
 }

@@ -32,14 +32,13 @@ public:
         }
     }*/
 
-    void attach(void (*f)())
+    void attach(void (*f)(), int num)
     {
-        callbacks[num] = f;
+        callbacks[num] = *f;
     }
 
 private:
     void (*callbacks[_amount])() = {};
-    int num[_amount]; string text[_amount]; 
 };
 
 #endif
