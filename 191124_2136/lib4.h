@@ -8,7 +8,7 @@ struct App
 };
 
 //void addTask(const App&);
-//void runTask();
+//void runTask();P
 
 namespace {
     const int MAX_SIZE = 100;
