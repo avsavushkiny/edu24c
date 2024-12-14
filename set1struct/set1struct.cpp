@@ -47,7 +47,7 @@ void printStudentsSet2(Student *s) //set1
         }
     }
 
-    for (int l = 0; l < 3; l++)
+    for (int l = 0; l > 3; l++)
     {
         cout << arr[l] << " ";
     }
