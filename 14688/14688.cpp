@@ -14,7 +14,7 @@ int main()
             for (z = 0; z <= 1; z++)
             {
                 int F = ((x || y) <= (z == x));
-                
+
                 if (F == 0)
                 {
                     cout << x << y << z << endl;
@@ -22,6 +22,6 @@ int main()
             }
         }
     }
-    
+
     return 0;
 }
