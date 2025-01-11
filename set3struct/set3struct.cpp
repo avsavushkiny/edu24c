@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <vector>
+
 using namespace std;
 
 struct Student
@@ -18,27 +20,38 @@ Student allStudentMGU[]
     {"Emelin", 110, "hogwarts"}
 };
 
-void studentSearch()
+void studentSearch(const Student students[], size_t numOfStudents)
 {
-    while (1)
+    while (true)
     {
-        bool state;
         string textUser;
+        cout << "Enter a student's full name: ";
         cin >> textUser;
-        for (Student st : allStudentMGU)
+        
+        bool found = false;
+        
+        for (size_t i = 0; i < numOfStudents; ++i)
         {
-            if (st.fullName.compare(textUser) == 0)
+            if (students[i].fullName == textUser)
             {
-                state = true;
-                cout << st.fullName << " " << st.groupNumber << " " << st.faculty << endl; break;
+                found = true;
+                cout << students[i].fullName << " "
+                     << students[i].groupNumber << " "
+                     << students[i].faculty << endl;
+                break;
             }
-            else state = false;
         }
-        if (state == false) cout << "Please re-enter data!" << endl;
+        
+        if (!found)
+        {
+            cout << "No such student found. Please try again." << endl;
+        }
     }
 }
 
 int main ()
 {
-    studentSearch(); return 0;
+    const size_t numOfStudents = sizeof(allStudentMGU) / sizeof(allStudentMGU[0]);
+    studentSearch(allStudentMGU, numOfStudents);
+    return 0;
 }
