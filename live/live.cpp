@@ -4,49 +4,42 @@ using namespace std;
 
 struct Student
 {
-    string fullName; int groupNumber; string faculty;
+    string fullName;
+    int groupNamber;
+    string faculty;
 };
 
-Student allStudentMGU[] =
+Student allStudent[]
 {
-    {"Golovina Viktoriya", 103, "IT Security"},
-    {"Ryabkov Artem", 103, "IT Security"},
-    {"Emelin Egor", 104, "IT Security"},
-    {"Soloncov Matvey", 105, "IT Security"},
-    {"Chadin Ivan", 103, "IT Security"}, 
-    {"Glotov Artem", 105, "Server Security"},
-    {"Artem Glyhov", 106, "IT Security"}
+    {"Alex", 103, "it"},
+    {"Misha", 103, "it"},
+    {"Sergey", 103, "it"}
 };
 
-void studentPoisk()
+void searchStudent()
 {
-    int a;
-    for (;;)
+    while (1)
     {
-        string text = "";
-        cin >> text;
-        for (Student st : allStudentMGU)
+        string textUser; bool flag = false;
+        cin >> textUser;
+
+        for (Student lo : allStudent)
         {
-            int aa = st.fullName.compare(text);
-            if (aa > 5)
+            if (lo.fullName.compare(textUser) == 0)
             {
-                cout << st.fullName << st.groupNumber << st.faculty << endl;
+                cout << lo.fullName << lo.groupNamber << lo.faculty << endl;
+                flag = true;
                 break;
             }
-            else cout << "re-enter data" << endl;
         }
-        cout << "quit -> 0 or next -> 1?";
-        cin >> a;
-        if (a == 0) {
-            break;
-        }
-        if (a == 1)
-            cout << "Enter name Student" << endl;
+
+        if (flag == false) cout << "re-enter" << endl;
     }
 }
 
 int main()
 {
-    studentPoisk(); return 0;
+    searchStudent();
+    
+    return 0;
 }
-
