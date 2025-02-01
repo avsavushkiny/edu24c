@@ -4,26 +4,14 @@ using namespace std;
 class A
 {
 public:
-    int summa()
-    { return 2 + 3; }
-
-    struct Student
-    {
-        string name;
-    };
-    Student k;
-
+    A(int a, int b) : m_a(a), m_b(b) {}
+    void summa() { cout << m_a + m_b << endl; }
 private:
-    int a{}, b{}, c{};
+    int m_a{}, m_b{};
 };
 
 int main()
 {
-    A a;
-    A::Student g; g.name = "Alexnder";
-    a.k.name = "Misha";
-
-    cout << a.summa() << endl << g.name << endl << a.k.name << endl;
-    
+    A f(2, 3); f.summa();
     return 0;
 }

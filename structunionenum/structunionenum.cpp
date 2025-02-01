@@ -1,14 +1,21 @@
 #include <iostream>
 using namespace std;
 
-struct Student
+class A
 {
-    double A; double B; double F; double D; int Y;
+public: int f, d;
+private: int k, l;
 };
+
+class B : A
+{
+public: int summa() { return f + d; }
+private:
+};
+
 
 int main()
 {
-    Student C; //8 + 8 + 8 + 8 + 4 = 36
-    cout << sizeof(C); //40
-    return 0;
+    A a; B b; a.d = 3, a.f = 2; 
+    cout << b.summa() << endl;
 }
