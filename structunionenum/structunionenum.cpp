@@ -1,25 +1,24 @@
 #include <iostream>
 using namespace std;
 
-class A //базовый
-{
-public: ~A(){}; virtual void summa() = 0;
-private:
-};
-
-class B : public A // производный класс
+class A
 {
 public:
-    B(int j, int i) : m_j(j), m_i(i) {}
-    void summa() override { cout << m_j + m_i << endl;}
+    A(int a0, int b0, int c0) : a(a0), b(b0), c(c0) {}
+
+    int summa()
+    {
+        return a + b + c;
+    }
 private:
-    int m_j, m_i;
+    int a,b,c;
 };
 
 
 
 int main()
 {
-    B b(5, 3); b.summa();
+    A student(3, 5, 2); cout << student.summa();
+    
     return 0;
 }
