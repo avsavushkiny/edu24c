@@ -2,23 +2,39 @@
 using namespace std;
 
 class A
-{
+{  
 public:
-    A(int a0, int b0, int c0) : a(a0), b(b0), c(c0) {}
-
-    int summa()
-    {
-        return a + b + c;
-    }
+    virtual void summa() = 0;
 private:
-    int a,b,c;
 };
 
+class B : public A
+{
+public:
+    void summa() override
+    {
+        cout << "1 func" << endl;
+        cout << "summa:" << a + b << endl;
+    }
+private:
+    int a{10}, b{10};
+};
 
+class C : public A
+{
+public:
+    void summa() override
+    {
+        cout << "2 func" << endl;
+        cout << "summa:" << a + b << endl;
+    }
+private:
+    int a{1}, b{2};
+};
 
 int main()
 {
-    A student(3, 5, 2); cout << student.summa();
-    
+    B b; b.summa();
+    C c; c.summa();
     return 0;
 }
