@@ -1,45 +1,31 @@
 #include <iostream>
-#include <string>
 using namespace std;
-
-struct Student
-{
-    string fullName;
-    int groupNamber;
-    string faculty;
-};
-
-Student allStudent[]
-{
-    {"Alex", 103, "it"},
-    {"Misha", 103, "it"},
-    {"Sergey", 103, "it"}
-};
-
-void searchStudent()
-{
-    while (1)
-    {
-        string textUser; bool flag = false;
-        cin >> textUser;
-
-        for (Student lo : allStudent)
-        {
-            if (lo.fullName.compare(textUser) == 0)
-            {
-                cout << lo.fullName << lo.groupNamber << lo.faculty << endl;
-                flag = true;
-                break;
-            }
-        }
-
-        if (flag == false) cout << "re-enter" << endl;
-    }
-}
+int a{}; int max_number{};
 
 int main()
 {
-    searchStudent();
-    
+    cout << "Кол-во чисел: " << endl;
+    cin >> a;
+    int numbers[a] = {};
+
+    cout << "Введите числа: " << endl;
+    for (int n = 0; n < a; n++)
+    {
+        cin >> numbers[n];
+    }
+
+    for (int b = 0; b < a; b++)
+    {
+        if (numbers[b] % 5 == 0)
+        {
+            if (numbers[b] > max_number)
+            {
+                max_number = numbers[b];
+            }
+        }
+    }
+
+    cout << max_number << endl;
+
     return 0;
 }
